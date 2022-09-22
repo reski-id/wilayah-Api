@@ -20,5 +20,5 @@ func RouteKota(e *echo.Echo, kota domain.KotaHandler) {
 	e.POST("/kota", kota.AddKota(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
 	e.PUT("/kota/:id", kota.UpdateDataKota(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
 	e.DELETE("/kota/:id", kota.DeleteDataKota(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
-	e.GET("/kota", kota.GetKota())
+	e.GET("/kota", kota.GetKota(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
 }

@@ -20,5 +20,5 @@ func RouteKec(e *echo.Echo, kecamatan domain.KecamatanHandler) {
 	e.POST("/kecamatan", kecamatan.AddKecamatan(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
 	e.PUT("/kecamatan/:id", kecamatan.UpdateDataKecamatan(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
 	e.DELETE("/kecamatan/:id", kecamatan.DeleteDataKecamatan(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
-	e.GET("/kecamatan", kecamatan.GetKecamatan())
+	e.GET("/kecamatan", kecamatan.GetKecamatan(), middleware.JWTWithConfig(middlewares.UseJWT([]byte(config.SECRET))))
 }

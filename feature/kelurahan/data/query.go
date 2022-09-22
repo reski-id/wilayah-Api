@@ -9,19 +9,19 @@ import (
 	"gorm.io/gorm"
 )
 
-type kecData struct {
+type kelData struct {
 	db *gorm.DB
 }
 
-func New(DB *gorm.DB) domain.KecamatanData {
-	return &kecData{
+func New(DB *gorm.DB) domain.KelurahanData {
+	return &kelData{
 		db: DB,
 	}
 }
 
-func (kd *kecData) InsertKecamatan(newData domain.Kecamatan) (idKecamatan int, err error) {
+func (kd *kelData) InsertKelurahan(newData domain.Kelurahan) (idKelurahan int, err error) {
 	cnv := FromModel(newData)
-	result := kd.db.Table("kecamatans").Create(&cnv)
+	result := kd.db.Table("kelurahans").Create(&cnv)
 	if result.Error != nil {
 		log.Println("Cannot create object", errors.New("error from db"))
 		return -1, errors.New("data already exist")
@@ -32,23 +32,23 @@ func (kd *kecData) InsertKecamatan(newData domain.Kecamatan) (idKecamatan int, e
 	return int(result.RowsAffected), nil
 }
 
-func (kd *kecData) GetAll() ([]domain.Kecamatan, error) {
-	var kecamatanData []Kecamatan
-	err := kd.db.Find(&kecamatanData).Error
+func (kd *kelData) GetAll() ([]domain.Kelurahan, error) {
+	var kelurahanData []Kelurahan
+	err := kd.db.Find(&kelurahanData).Error
 	if err != nil {
-		return []domain.Kecamatan{}, err
+		return []domain.Kelurahan{}, err
 	}
-	var convert []domain.Kecamatan
-	for i := 0; i < len(kecamatanData); i++ {
-		convert = append(convert, kecamatanData[i].ToModel())
+	var convert []domain.Kelurahan
+	for i := 0; i < len(kelurahanData); i++ {
+		convert = append(convert, kelurahanData[i].ToModel())
 	}
 	return convert, nil
 }
 
-func (kd *kecData) Update(id int, updatedData domain.Kecamatan) (idKecamatan int, err error) {
+func (kd *kelData) Update(id int, updatedData domain.Kelurahan) (idKelurahan int, err error) {
 	var cnv = FromModel(updatedData)
 	cnv.ID = uint(id)
-	result := kd.db.Model(&Kecamatan{}).Where("ID = ?", id).Updates(cnv)
+	result := kd.db.Model(&Kelurahan{}).Where("ID = ?", id).Updates(cnv)
 	if result.Error != nil {
 		log.Println("Cannot update data", errors.New("error db"))
 		return -1, errors.New("data already exist")
@@ -60,8 +60,8 @@ func (kd *kecData) Update(id int, updatedData domain.Kecamatan) (idKecamatan int
 	return int(result.RowsAffected), nil
 }
 
-func (kd *kecData) Delete(id int) (idKecamatan int, err error) {
-	res := kd.db.Delete(&Kecamatan{}, id)
+func (kd *kelData) Delete(id int) (idKelurahan int, err error) {
+	res := kd.db.Delete(&Kelurahan{}, id)
 	if res.Error != nil {
 		log.Println("cannot delete data", res.Error.Error())
 		return 0, res.Error
