@@ -12,6 +12,10 @@ import (
 	pd "wilayah/feature/provinsi/data"
 	provinsiDelivery "wilayah/feature/provinsi/delivery"
 	pu "wilayah/feature/provinsi/usecase"
+
+	kd "wilayah/feature/kota/data"
+	kotaDelivery "wilayah/feature/kota/delivery"
+	ku "wilayah/feature/kota/usecase"
 )
 
 func Initfactory(e *echo.Echo, db *gorm.DB) {
@@ -25,4 +29,9 @@ func Initfactory(e *echo.Echo, db *gorm.DB) {
 	provinsiCase := pu.New(provinsiData, validator)
 	provinsiHandler := provinsiDelivery.New(provinsiCase)
 	provinsiDelivery.RouteProvinsi(e, provinsiHandler)
+
+	kotaData := kd.New(db)
+	kotaCase := ku.New(kotaData, validator)
+	kotaHandler := kotaDelivery.New(kotaCase)
+	kotaDelivery.RouteKota(e, kotaHandler)
 }

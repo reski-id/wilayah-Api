@@ -29,6 +29,7 @@
 * register
 * login
 * Provinsi
+* Kota
 
 
 ## ⚙️ Installing and Runing from Github
@@ -78,20 +79,27 @@ $ docker logs wilapi
 Users
 | Methode       | End Point      | used for            | Using JWT
 | ------------- | -------------  | -----------         | -----------
-| `POST`        | /users         | register            | NO
-| `POST`        | /login         | login               | NO 
-| `GET`         | /users         | get my account      | YES
-| `DELETE`      | /users         | delete my account   | YES
-| `PUT`         | /users         | update my account   | YES
+| `POST`        | /users         | Register            | No
+| `POST`        | /login         | Login               | No 
+| `GET`         | /users         | Get my Profile      | Yes
+| `DELETE`      | /users         | Delete my Profile   | Yes
+| `PUT`         | /users         | Update my Profile   | Yes
 
 Provinsi
 | Methode       | End Point       | used for                | Using JWT
 | ------------- | -------------   | -----------             | -----------
-| `POST`        | /provinsi       | Add New Data Provinsi   | YES
-| `GET`         | /provinsi       | get Provinsi            | YES
-| `DELETE`      | /provinsi/:id   | Delete Data Provinsi    | YES
-| `PUT`         | /provinsi/:id   | Update Data Provinsi    | YES
+| `POST`        | /provinsi       | Add New Data Provinsi   | Yes
+| `GET`         | /provinsi       | Get Provinsi            | Yes
+| `DELETE`      | /provinsi/:id   | Delete Data Provinsi    | Yes
+| `PUT`         | /provinsi/:id   | Update Data Provinsi    | Yes
 
+Kota
+| Methode       | End Point       | used for                | Using JWT
+| ------------- | -------------   | -----------             | -----------
+| `POST`        | /kota           | Add New Data Kota       | Yes
+| `GET`         | /kota           | get Kota                | Yes
+| `DELETE`      | /kota/:id       | Delete Data Kota        | Yes
+| `PUT`         | /kota/:id       | Update Data Kota        | Yes
 
 
 ## 🛠️ Technologi
