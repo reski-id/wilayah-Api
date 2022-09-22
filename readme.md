@@ -1,34 +1,34 @@
 
 <h1 align="center">
-  Wa-Message App
+  Wilayah Rest API App
   <br>
   
 </h1>
 
-<h4 align="center">Messaging app Rest API Backend, users can send and reply to messages 
+<h4 align="center"> 
 <br>
 <br>
-<img src="readme\app.gif" alt="Running App" width="70%" height=70% align="center">
 
 </h4>
 <p align="left">
 <h2>
   Content <br></h2>
-  • <a href="#key-features">Key Features</a> <br>
-  • <a href="#Installing -and-runing-from-github">Installing Using Github</a> <br>
- • <a href="#installing-and-runing-with-docker">Installing Using Docker</a><br>
+  • <a href="#Features">Key Features</a> <br>
+  • <a href="#github">Installing Using Github</a> <br>
+ • <a href="#docker">Installing Using Docker</a><br>
   • <a href="#end-point">End Point</a><br>
+  • <a href="#iopenApi">Swagger Open API</a><br>
   • <a href="#technologi">Technologi that i use</a><br>
-  • <a href="#contact-me">Contact me</a><br>
+  • <a href="#contact">Contact me</a><br>
 </p>
 
 
-## 📱 Key Features
+## 📱 Features
 
-* User can register
-* User can login
-* User send messages 
-* User reply messages
+* register
+* login
+* Provinsi
+
 
 ## ⚙️ Installing and Runing from Github
 
@@ -37,10 +37,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [G
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/reski-id/wa-message.git
+$ git clone https://github.com/reski-id/wilayah-Api.git
 
 # Go into the repository
-$ cd wa-app
+$ cd wilayah-Api
 
 # Install dependencies
 $ go get
@@ -50,7 +50,7 @@ $ go run main.go
 ```
 
 > **Note**
-> Make sure you allrady create database for this app see local `.env` file.
+> Make sure you allready create database for this app see local `.env` file.
 
 
 ## ⚙️ Installing and Runing with Docker
@@ -58,7 +58,7 @@ if you are using docker or aws/google cloud server you can run this application 
 
 ```bash
 # Pull this latest app from dockerhub 
-$ docker pull programmerreski/wa-app
+$ docker pull programmerreski/wilayah-api
 
 # if you have mysql container you can skip this
 $ docker pull mysql
@@ -66,28 +66,30 @@ $ docker pull mysql
 $ docker run --name mysqlku -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD="yourmysqlpassword" mysql 
 
 # create app container
-$ docker run --name waapp -p 80:8000 -d --link mysqlku -e SECRET="secr3t" -e SERVERPORT=8000 -e Name="message_app" -e Address=mysqlku -e Port=3306 -e Username="root" -e Password="yourmysqlpassword" programmerreski/wa-app
+$ docker run --name wilapi -p 80:8000 -d --link mysqlku -e SECRET="secr3t" -e SERVERPORT=8000 -e Name="wilayah-api" -e Address=mysqlku -e Port=3306 -e Username="root" -e Password="yourmysqlpassword" programmerreski/wilayah-api
 
 # Run the app
-$ docker logs waapp
+$ docker logs wilapi
 ```
 
 ## 📜 End Point  
 
 Users
-| Methode       | EndPoint       | ...
-| ------------- | -------------  | -----------
-| `POST`        | /users         | register
-| `POST`        | /login         | login
-| `GET`         | /users         | get my account
-| `DELETE`      | /users         | delete my account
-| `PUT`         | /users         | update my account
+| Methode       | End Point      | used for            | Using JWT
+| ------------- | -------------  | -----------         | -----------
+| `POST`        | /users         | register            | NO
+| `POST`        | /login         | login               | NO 
+| `GET`         | /users         | get my account      | YES
+| `DELETE`      | /users         | delete my account   | YES
+| `PUT`         | /users         | update my account   | YES
 
-Message
-| Methode       | EndPoint       | ...
-| ------------- | -------------  | -----------
-| `POST`        | /message       | create message
-| `DELETE`      | /message/:id  | delete my message
+Provinsi
+| Methode       | End Point       | used for                | Using JWT
+| ------------- | -------------   | -----------             | -----------
+| `POST`        | /provinsi       | Add New Data Provinsi   | YES
+| `GET`         | /provinsi       | get Provinsi            | YES
+| `DELETE`      | /provinsi/:id   | Delete Data Provinsi    | YES
+| `PUT`         | /provinsi/:id   | Update Data Provinsi    | YES
 
 
 

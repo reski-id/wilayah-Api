@@ -8,6 +8,10 @@ import (
 	ud "wilayah/feature/user/data"
 	userDelivery "wilayah/feature/user/delivery"
 	us "wilayah/feature/user/usecase"
+
+	pd "wilayah/feature/provinsi/data"
+	provinsiDelivery "wilayah/feature/provinsi/delivery"
+	pu "wilayah/feature/provinsi/usecase"
 )
 
 func Initfactory(e *echo.Echo, db *gorm.DB) {
@@ -16,4 +20,9 @@ func Initfactory(e *echo.Echo, db *gorm.DB) {
 	validator := validator.New()
 	useCase := us.New(userData, validator)
 	userDelivery.New(e, useCase)
+
+	provinsiData := pd.New(db)
+	provinsiCase := pu.New(provinsiData, validator)
+	provinsiHandler := provinsiDelivery.New(provinsiCase)
+	provinsiDelivery.RouteProvinsi(e, provinsiHandler)
 }
