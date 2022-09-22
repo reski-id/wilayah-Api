@@ -11,6 +11,7 @@ type User struct {
 	Username string `json:"username" form:"username" validate:"required"`
 	Password string `json:"password" form:"password" validate:"required"`
 	FullName string `json:"fullname" form:"fullname"`
+	Email    string `json:"email" form:"email"`
 }
 
 func (u *User) ToModel() domain.User {
@@ -19,6 +20,7 @@ func (u *User) ToModel() domain.User {
 		UserName:  u.Username,
 		Password:  u.Password,
 		FullName:  u.FullName,
+		Email:     u.Email,
 		CreatedAt: u.CreatedAt,
 		UpdatedAt: u.UpdatedAt,
 	}
@@ -39,5 +41,6 @@ func FromModel(data domain.User) User {
 	res.Username = data.UserName
 	res.Password = data.Password
 	res.FullName = data.FullName
+	res.Email = data.Email
 	return res
 }

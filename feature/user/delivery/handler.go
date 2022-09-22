@@ -68,10 +68,10 @@ func (uh *userHandler) LogUser() echo.HandlerFunc {
 		row, data, e := uh.userUsecase.LoginUser(userLogin.LoginToModel())
 		if e != nil {
 			log.Println("Cannot proces data", err)
-			return c.JSON(http.StatusBadRequest, "email or password incorrect")
+			return c.JSON(http.StatusBadRequest, "username or password incorrect")
 		}
 		if row == -1 {
-			return c.JSON(http.StatusBadRequest, "email or password incorrect")
+			return c.JSON(http.StatusBadRequest, "username or password incorrect")
 		}
 
 		token := common.GenerateToken(int(data.ID))
