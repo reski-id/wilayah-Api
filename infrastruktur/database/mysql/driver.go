@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"wilayah/config"
+	kotaData "wilayah/feature/kota/data"
 	provinsiData "wilayah/feature/provinsi/data"
 	userData "wilayah/feature/user/data"
 
@@ -22,5 +23,5 @@ func InitDB(cfg *config.AppConfig) *gorm.DB {
 }
 
 func MigrateData(db *gorm.DB) {
-	db.AutoMigrate(userData.User{}, provinsiData.Provinsi{})
+	db.AutoMigrate(userData.User{}, provinsiData.Provinsi{}, kotaData.Kota{})
 }
