@@ -76,7 +76,7 @@ $ docker logs wilapi
 
 ## 📜 End Point  
 
-Users
+Usersgi
 | Methode       | End Point      | used for            | Using JWT
 | ------------- | -------------  | -----------         | -----------
 | `POST`        | /users         | Register            | No
@@ -97,10 +97,17 @@ Kota
 | Methode       | End Point       | used for                | Using JWT
 | ------------- | -------------   | -----------             | -----------
 | `POST`        | /kota           | Add New Data Kota       | Yes
-| `GET`         | /kota           | get Kota                | Yes
+| `GET`         | /kota           | Get Kota                | Yes
 | `DELETE`      | /kota/:id       | Delete Data Kota        | Yes
 | `PUT`         | /kota/:id       | Update Data Kota        | Yes
 
+Kecamatan
+| Methode       | End Point            | used for                     | Using JWT
+| ------------- | -------------        |  -----------                 | -----------
+| `POST`        | /kecamatan           | Add New Data Kecamatan       | Yes
+| `GET`         | /kecamatan           | Get Kecamatan                | Yes
+| `DELETE`      | /kecamatan/:id       | Delete Data Kecamatan        | Yes
+| `PUT`         | /kecamatan/:id       | Update Data Kecamatan        | Yes
 
 ## 🛠️ Technologi
 
