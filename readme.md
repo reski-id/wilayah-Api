@@ -30,6 +30,8 @@
 * login
 * Provinsi
 * Kota
+* Kecamatan
+* Kelurahan
 
 
 ## ⚙️ Installing and Runing from Github
@@ -76,7 +78,7 @@ $ docker logs wilapi
 
 ## 📜 End Point  
 
-Usersgi
+User
 | Methode       | End Point      | used for            | Using JWT
 | ------------- | -------------  | -----------         | -----------
 | `POST`        | /users         | Register            | No
@@ -108,6 +110,14 @@ Kecamatan
 | `GET`         | /kecamatan           | Get Kecamatan                | Yes
 | `DELETE`      | /kecamatan/:id       | Delete Data Kecamatan        | Yes
 | `PUT`         | /kecamatan/:id       | Update Data Kecamatan        | Yes
+
+Kelurahan
+| Methode       | End Point            | used for                     | Using JWT
+| ------------- | -------------        |  -----------                 | -----------
+| `POST`        | /kelurahan           | Add New Data Kelurahan       | Yes
+| `GET`         | /kelurahan           | Get Kelurahan                | Yes
+| `DELETE`      | /kelurahan/:id       | Delete Data Kelurahan        | Yes
+| `PUT`         | /kelurahan/:id       | Update Data Kelurahan        | Yes
 
 ## 🛠️ Technologi
 

@@ -20,6 +20,10 @@ import (
 	kecd "wilayah/feature/kecamatan/data"
 	kecDelivery "wilayah/feature/kecamatan/delivery"
 	kecu "wilayah/feature/kecamatan/usecase"
+
+	keld "wilayah/feature/kelurahan/data"
+	kelDelivery "wilayah/feature/kelurahan/delivery"
+	kelu "wilayah/feature/kelurahan/usecase"
 )
 
 func Initfactory(e *echo.Echo, db *gorm.DB) {
@@ -43,4 +47,9 @@ func Initfactory(e *echo.Echo, db *gorm.DB) {
 	kecCase := kecu.New(kecData, validator)
 	kecHandler := kecDelivery.New(kecCase)
 	kecDelivery.RouteKec(e, kecHandler)
+
+	kelData := keld.New(db)
+	kelCase := kelu.New(kelData, validator)
+	kelHandler := kelDelivery.New(kelCase)
+	kelDelivery.RouteKel(e, kelHandler)
 }

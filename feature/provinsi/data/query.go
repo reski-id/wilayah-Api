@@ -21,7 +21,7 @@ func New(DB *gorm.DB) domain.ProvinsiData {
 
 func (pd *provinsiData) InsertProvinsi(newProvinsi domain.Provinsi) (idProvinsi int, err error) {
 	cnv := FromModel(newProvinsi)
-	result := pd.db.Table("provinsi").Create(&cnv)
+	result := pd.db.Table("provinsis").Create(&cnv)
 	if result.Error != nil {
 		log.Println("Cannot create object", errors.New("error from db"))
 		return -1, errors.New("data already exist")
