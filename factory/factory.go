@@ -16,6 +16,10 @@ import (
 	kd "wilayah/feature/kota/data"
 	kotaDelivery "wilayah/feature/kota/delivery"
 	ku "wilayah/feature/kota/usecase"
+
+	kecd "wilayah/feature/kecamatan/data"
+	kecDelivery "wilayah/feature/kecamatan/delivery"
+	kecu "wilayah/feature/kecamatan/usecase"
 )
 
 func Initfactory(e *echo.Echo, db *gorm.DB) {
@@ -34,4 +38,9 @@ func Initfactory(e *echo.Echo, db *gorm.DB) {
 	kotaCase := ku.New(kotaData, validator)
 	kotaHandler := kotaDelivery.New(kotaCase)
 	kotaDelivery.RouteKota(e, kotaHandler)
+
+	kecData := kecd.New(db)
+	kecCase := kecu.New(kecData, validator)
+	kecHandler := kecDelivery.New(kecCase)
+	kecDelivery.RouteKec(e, kecHandler)
 }
