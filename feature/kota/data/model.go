@@ -12,6 +12,12 @@ type Kota struct {
 	ProvinsiCode string
 }
 
+type Provinsi struct {
+	gorm.Model
+	ProvinsiName string
+	ProvinsiCode string
+}
+
 func (s *Kota) ToModel() domain.Kota {
 	return domain.Kota{
 		ID:           int(s.ID),
