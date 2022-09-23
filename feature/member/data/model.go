@@ -18,6 +18,37 @@ type Member struct {
 	KecID       string
 }
 
+type Provinsi struct {
+	gorm.Model
+	ProvinsiName string
+	ProvinsiCode string
+}
+
+type Kota struct {
+	gorm.Model
+	KotaName     string
+	ProvinsiCode string
+}
+
+type Kecamatan struct {
+	gorm.Model
+	KecamatanName string
+	KotaID        string
+}
+
+type Kelurahan struct {
+	gorm.Model
+	KelurahanName string
+	KecamatanID   string
+}
+type User struct {
+	gorm.Model
+	Username string
+	Password string
+	FullName string
+	Email    string
+}
+
 func (s *Member) ToModel() domain.Member {
 	return domain.Member{
 		ID:          int(s.ID),

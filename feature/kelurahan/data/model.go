@@ -12,6 +12,12 @@ type Kelurahan struct {
 	KecamatanID   string
 }
 
+type Kecamatan struct {
+	gorm.Model
+	KecamatanName string
+	KotaID        string
+}
+
 func (s *Kelurahan) ToModel() domain.Kelurahan {
 	return domain.Kelurahan{
 		ID:            int(s.ID),
