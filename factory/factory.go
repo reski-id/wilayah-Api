@@ -24,6 +24,10 @@ import (
 	keld "wilayah/feature/kelurahan/data"
 	kelDelivery "wilayah/feature/kelurahan/delivery"
 	kelu "wilayah/feature/kelurahan/usecase"
+
+	memd "wilayah/feature/member/data"
+	memDelivery "wilayah/feature/member/delivery"
+	memu "wilayah/feature/member/usecase"
 )
 
 func Initfactory(e *echo.Echo, db *gorm.DB) {
@@ -52,4 +56,9 @@ func Initfactory(e *echo.Echo, db *gorm.DB) {
 	kelCase := kelu.New(kelData, validator)
 	kelHandler := kelDelivery.New(kelCase)
 	kelDelivery.RouteKel(e, kelHandler)
+
+	memData := memd.New(db)
+	memCase := memu.New(memData, validator)
+	memHandler := memDelivery.New(memCase)
+	memDelivery.RouteMember(e, memHandler)
 }
