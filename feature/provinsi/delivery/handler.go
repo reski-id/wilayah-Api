@@ -44,7 +44,7 @@ func (ph *provinsiHandler) AddProvinsi() echo.HandlerFunc {
 		}
 		return c.JSON(http.StatusOK, map[string]interface{}{
 			"code":    http.StatusOK,
-			"message": "succes",
+			"message": "Success",
 		})
 	}
 }
@@ -60,7 +60,7 @@ func (ph *provinsiHandler) GetProvinsi() echo.HandlerFunc {
 		}
 		return c.JSON(http.StatusOK, map[string]interface{}{
 			"code":    http.StatusOK,
-			"message": "success get data",
+			"message": "Success get data",
 			"data":    FromModelToList(data),
 		})
 	}
@@ -98,7 +98,7 @@ func (ph *provinsiHandler) UpdateDataProvinsi() echo.HandlerFunc {
 
 		return c.JSON(http.StatusOK, map[string]interface{}{
 			"code":    http.StatusOK,
-			"message": "success update data " + param,
+			"message": "Success update data " + param,
 			"data":    data,
 		})
 	}
