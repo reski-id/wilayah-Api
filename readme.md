@@ -32,6 +32,7 @@
 * Kota
 * Kecamatan
 * Kelurahan
+* Member
 
 
 ## ⚙️ Installing and Runing from Github
@@ -118,6 +119,15 @@ Kelurahan
 | `GET`         | /kelurahan           | Get Kelurahan                | Yes
 | `DELETE`      | /kelurahan/:id       | Delete Data Kelurahan        | Yes
 | `PUT`         | /kelurahan/:id       | Update Data Kelurahan        | Yes
+
+
+Member
+| Methode       | End Point         | used for                  | Using JWT
+| ------------- | -------------     |  -----------              | -----------
+| `POST`        | /member           | Add New Data Member       | Yes
+| `GET`         | /member           | Get Member                | Yes
+| `DELETE`      | /member/:id       | Delete Data Member        | Yes
+| `PUT`         | /member/:id       | Update Data Member        | Yes
 
 ## 🛠️ Technologi
 
