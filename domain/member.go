@@ -8,10 +8,10 @@ type Member struct {
 	NIK         int
 	PhoneNumber string
 	Address     string
-	ProvinsiID  string
-	KotaID      string
-	KelID       string
-	KecID       string
+	ProvinsiID  int
+	KotaID      int
+	KelurahanID int
+	KecamatanID int
 }
 
 type MemberHandler interface {

@@ -9,44 +9,42 @@ import (
 type Member struct {
 	gorm.Model
 	UserID      int
+	User        User `gorm:"foreignKey:UserID; references:ID; constraint:OnDelete:CASCADE"`
 	NIK         int
 	PhoneNumber string
 	Address     string
-	ProvinsiID  string
-	KotaID      string
-	KelID       string
-	KecID       string
+	ProvinsiID  int
+	Provinsi    Provinsi `gorm:"foreignKey:ProvinsiID; references:ID; constraint:OnDelete:CASCADE"`
+	KotaID      int
+	Kota        Kota `gorm:"foreignKey:KotaID; references:ID; constraint:OnDelete:CASCADE"`
+	KecamatanID int
+	Kecamatan   Kecamatan `gorm:"foreignKey:KecamatanID; references:ID; constraint:OnDelete:CASCADE"`
+	KelurahanID int
+	Kelurahan   Kelurahan `gorm:"foreignKey:KelurahanID; references:ID; constraint:OnDelete:CASCADE"`
 }
 
 type Provinsi struct {
 	gorm.Model
 	ProvinsiName string
-	ProvinsiCode string
 }
 
 type Kota struct {
 	gorm.Model
-	KotaName     string
-	ProvinsiCode string
+	KotaName string
 }
 
 type Kecamatan struct {
 	gorm.Model
 	KecamatanName string
-	KotaID        string
 }
 
 type Kelurahan struct {
 	gorm.Model
 	KelurahanName string
-	KecamatanID   string
 }
 type User struct {
 	gorm.Model
 	Username string
-	Password string
-	FullName string
-	Email    string
 }
 
 func (s *Member) ToModel() domain.Member {
@@ -58,8 +56,8 @@ func (s *Member) ToModel() domain.Member {
 		Address:     s.Address,
 		ProvinsiID:  s.ProvinsiID,
 		KotaID:      s.KotaID,
-		KelID:       s.KelID,
-		KecID:       s.KecID,
+		KelurahanID: s.KelurahanID,
+		KecamatanID: s.KecamatanID,
 	}
 }
 
@@ -80,7 +78,7 @@ func FromModel(data domain.Member) Member {
 	res.ProvinsiID = data.ProvinsiID
 	res.Address = data.Address
 	res.KotaID = data.KotaID
-	res.KelID = data.KelID
-	res.KecID = data.KecID
+	res.KelurahanID = data.KelurahanID
+	res.KecamatanID = data.KecamatanID
 	return res
 }

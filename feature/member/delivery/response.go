@@ -8,10 +8,10 @@ type MemberResponse struct {
 	NIK         int    `json:"nik"`
 	PhoneNumber string `json:"phone_number"`
 	Address     string `json:"address"`
-	ProvinsiID  string `json:"provinsi_id"`
-	KotaID      string `json:"kota_id"`
-	KelID       string `json:"kel_id"`
-	KecID       string `json:"kec_id"`
+	ProvinsiID  int    `json:"provinsi_id" form:"provinsi_id"`
+	KotaID      int    `json:"kota_id" form:"kota_id"`
+	KecamatanID int    `json:"kec_id" form:"kec_id"`
+	KelurahanID int    `json:"kel_id" form:"kel_id"`
 }
 
 func FromModel(data domain.Member) MemberResponse {
@@ -23,7 +23,8 @@ func FromModel(data domain.Member) MemberResponse {
 	res.Address = data.Address
 	res.ProvinsiID = data.ProvinsiID
 	res.KotaID = data.KotaID
-	res.KecID = data.KecID
+	res.KecamatanID = data.KecamatanID
+	res.KelurahanID = data.KelurahanID
 	return res
 }
 
