@@ -3,16 +3,16 @@ package delivery
 import "wilayah/domain"
 
 type KotaResponse struct {
-	ID           int    `json:"id"`
-	KotaName     string `json:"kota_name"`
-	ProvinsiCode string `json:"provinsi_code"`
+	ID         int    `json:"id"`
+	KotaName   string `json:"kota_name"`
+	ProvinsiID int    `json:"ProvinsiID"`
 }
 
 func FromModel(data domain.Kota) KotaResponse {
 	var res KotaResponse
 	res.ID = data.ID
 	res.KotaName = data.KotaName
-	res.ProvinsiCode = data.ProvinsiCode
+	res.ProvinsiID = data.ProvinsiID
 	return res
 }
 
