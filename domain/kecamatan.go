@@ -5,7 +5,7 @@ import "github.com/labstack/echo/v4"
 type Kecamatan struct {
 	ID            int
 	KecamatanName string
-	KotaID        string
+	KotaID        int
 }
 
 type KecamatanHandler interface {

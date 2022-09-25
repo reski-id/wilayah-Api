@@ -9,13 +9,13 @@ import (
 type Kelurahan struct {
 	gorm.Model
 	KelurahanName string
-	KecamatanID   string
+	KecamatanID   int
+	Kecamatan     Kecamatan `gorm:"foreignKey:KecamatanID; references:ID; constraint:OnDelete:CASCADE"`
 }
 
 type Kecamatan struct {
 	gorm.Model
 	KecamatanName string
-	KotaID        string
 }
 
 func (s *Kelurahan) ToModel() domain.Kelurahan {

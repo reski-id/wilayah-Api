@@ -3,9 +3,9 @@ package domain
 import "github.com/labstack/echo/v4"
 
 type Kota struct {
-	ID           int
-	KotaName     string
-	ProvinsiCode string
+	ID         int
+	KotaName   string
+	ProvinsiID int
 }
 
 type KotaHandler interface {

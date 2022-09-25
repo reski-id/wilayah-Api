@@ -8,8 +8,9 @@ import (
 
 type Kota struct {
 	gorm.Model
-	KotaName     string
-	ProvinsiCode string
+	KotaName   string
+	ProvinsiID int
+	Provinsi   Provinsi `gorm:"foreignKey:ProvinsiID; references:ID; constraint:OnDelete:CASCADE"`
 }
 
 type Provinsi struct {
@@ -20,9 +21,9 @@ type Provinsi struct {
 
 func (s *Kota) ToModel() domain.Kota {
 	return domain.Kota{
-		ID:           int(s.ID),
-		KotaName:     s.KotaName,
-		ProvinsiCode: s.ProvinsiCode,
+		ID:         int(s.ID),
+		KotaName:   s.KotaName,
+		ProvinsiID: s.ProvinsiID,
 	}
 }
 
@@ -38,6 +39,6 @@ func ParseToArr(arr []Kota) []domain.Kota {
 func FromModel(data domain.Kota) Kota {
 	var res Kota
 	res.KotaName = data.KotaName
-	res.ProvinsiCode = data.ProvinsiCode
+	res.ProvinsiID = data.ProvinsiID
 	return res
 }

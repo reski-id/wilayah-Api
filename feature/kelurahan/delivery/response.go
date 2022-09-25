@@ -5,7 +5,7 @@ import "wilayah/domain"
 type KelurahanResponse struct {
 	ID            int    `json:"id"`
 	KelurahanName string `json:"kelurahan_name" form:"kelurahan_name"`
-	KecamatanID   string `json:"kecamatan_id" form:"kecamatan_id"`
+	KecamatanID   int    `json:"kecamatan_id" form:"kecamatan_id"`
 }
 
 func FromModel(data domain.Kelurahan) KelurahanResponse {

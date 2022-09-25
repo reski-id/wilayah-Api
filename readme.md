@@ -1,26 +1,20 @@
 
 
-<h1 align="center">
-  Wilayah Rest API App
-  <br>
-  
-</h1>
-
-<h4 align="center"> 
+<h3 align="center">Wilayah Rest API <br>
+<h5 align="center" >Golang Echo Clean Architecture <h5>
 <br>
-<br>
-
+<img src="Dokumentasi\readme.gif" alt="Running App" width="85%" height=70% align="center">
 </h4>
 <p align="left">
 <h2>
   Content <br></h2>
-  • <a href="#Features">Key Features</a> <br>
-  • <a href="#github">Installing Using Github</a> <br>
- • <a href="#docker">Installing Using Docker</a><br>
-  • <a href="#end-point">End Point</a><br>
-  • <a href="#iopenApi">Swagger Open API</a><br>
-  • <a href="#technologi">Technologi that i use</a><br>
-  • <a href="#contact">Contact me</a><br>
+  • Key Features <br>
+  • Installing Using Github<br>
+  • Installing Using Docker<br>
+  • End Point<br>
+  • Swagger Open API<br>
+  • Technologi that i use<br>
+  • Contact me<br>
 </p>
 
 
@@ -49,6 +43,9 @@ $ cd wilayah-Api
 
 # Install dependencies
 $ go get
+
+# Load .env
+$ source .env
 
 # Run the app
 $ go run main.go
